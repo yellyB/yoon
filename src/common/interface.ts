@@ -4,5 +4,5 @@ export interface IPicture {
   created: string;
   size: string;
   descriptions?: string;
-  imageURL: string;
+  fileName: string;
 }

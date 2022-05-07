@@ -7,28 +7,26 @@ const { Meta } = Card;
 const Item = (props: { data: IPicture }) => {
   const { data } = props;
 
-  console.log(data);
-
   const description = (
-    <>
+    <div>
+      <div>{data.title}</div>
       <div>{data.size}</div>
       <div>{data.created}</div>
       <div>{data.descriptions}</div>
-    </>
+    </div>
   );
 
   return (
-    <Card
-      hoverable
-      style={{ width: 240 }}
-      cover={
+    <Card hoverable>
+      <div style={{ display: "flex" }}>
         <img
           alt="example"
-          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          // src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          src={process.env.PUBLIC_URL + "/images/" + data.fileName + ".png"}
+          style={{ width: 260, height: 340 }}
         />
-      }
-    >
-      <Meta title={data.title} description={description} />
+        {description}
+      </div>
     </Card>
   );
 };
